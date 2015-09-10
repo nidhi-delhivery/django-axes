@@ -232,7 +232,7 @@ def _get_user_attempts(request):
     if USE_USER_AGENT:
         ua = request.META.get('HTTP_USER_AGENT', '<unknown>')[:255]
         attempts = AccessAttempt.objects.filter(
-            user_agent=ua, ip_address=ip, username=username, trusted=True
+            user_agent=ua, ip_address=ip, trusted=True
         )
     else:
         attempts = AccessAttempt.objects.filter(
